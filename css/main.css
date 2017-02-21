@@ -5,6 +5,11 @@
   color: red;
 }
 
+.albumart{
+  width: 200px;
+  height: 200px;
+}
+
 .container{
   padding: 10px;
   background-color: lightblue;

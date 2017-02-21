@@ -3,44 +3,76 @@
 <head>
   <title>radMaziqPlayer</title>
   <link href="css/main.css" rel="stylesheet">
-  <script src="js/jquery.min.js"></script>
+  <!-- <script src="js/jquery.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
   <script type="text/javascript">
   jQuery(document).ready(function(){
-    var audioArray = document.getElementsByClassName('playsong');
-    var nowPlaying = audioArray[i=0];
-    nowPlaying.load();
+
+    i=0;
+
+    nowPlaying = document.getElementsByClassName('playsong');
+    nowPlaying[i].load();
 
     $('.play').on('click', function(){
-      nowPlaying.play();
+      nowPlaying[i].play();
+      callMeta();
     });
     $('.stop').on('click', function(){
-      nowPlaying.pause();
+      nowPlaying[i].pause();
+      callMeta();
     });
     $('.next').on('click', function(){
       $.each($('audio.playsong'), function(){
         this.pause();
       });
       ++i;
-      nowPlaying.load();
-      nowPlaying.play();
+      nowPlaying[i].load();
+      nowPlaying[i].play();
+      callMeta();
     })
+    $('.previous').on('click', function(){
+      $.each($('audio.playsong'), function(){
+        this.pause();
+      });
+      --i;
+      nowPlaying[i].load();
+      nowPlaying[i].play();
+      callMeta();
+    })
+    function callMeta(){
+      var trackTitle = $(nowPlaying[i]).attr('data-songtitle');
+      $('.songtitle').html(trackTitle);
+      var trackArtist = $(nowPlaying[i]).attr('data-songartist');
+      $('.songartist').html(trackArtist);
+      var albumArt = $(nowPlaying[i]).attr('data-albumart');
+      $('img.albumart').attr('src', albumArt);
+    }
   })
 
   </script>
 </head>
 <body>
   <div class="container">
-    <audio class="playsong" src="sound/TantrumDesire-GuidedRhythm.mp3"></audio>
-    <audio class="playsong" src="sound/KillParis-TenderLove.mp3"></audio>
+    <audio class="playsong" data-songtitle="Kill Paris" data-songartist="Tender Love" data-albumart="img/contempo.png" src="sound/KillParis-TenderLove.mp3"></audio>
+    <audio class="playsong" data-songtitle="Tantrum Desire" data-songartist="Guided Rythm" data-albumart="img/RD.png" src="sound/TantrumDesire-GuidedRhythm.mp3"></audio>
+
+    <img class="albumart" src="img/radmusicpod.png">
+    <div>
+      <h1 class="songtitle">Song Title</h1>
+    </div>
+
     <div class="play">
-      <h1>Play</h1>
+      <h2>Play</h2>
     </div>
     <div class="stop">
-      <h1>Pause</h1>
+      <h2>Pause</h2>
     </div>
     <div class="next">
-      <h1>Next</h1>
+      <h2>Next</h2>
+    </div>
+    <div class="previous">
+      <h2>Previous</h2>
     </div>
   </div>
 </body>
