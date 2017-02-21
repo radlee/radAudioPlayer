@@ -3,10 +3,23 @@
 <head>
   <title>radMaziqPlayer</title>
   <link href="css/main.css" rel="stylesheet">
-  <!-- <script src="js/jquery.min.js"></script> -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-  <script type="text/javascript">
+
+  <!-- Online -->
+  <!-- Bs -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+  <!-- OffLine -->
+  <!-- Bs -->
+  <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+  <!-- <script src="js/bootstrap.min.js"></script> -->
+  <!-- <script src="js/jquery.min.js"></script> -->
+  <!-- <script src="js/controlls"></script> -->
+  <script>
+
   jQuery(document).ready(function(){
 
     i=0;
@@ -50,29 +63,44 @@
     }
   })
 
+
   </script>
+
 </head>
 <body>
   <div class="container">
     <audio class="playsong" data-songtitle="Kill Paris" data-songartist="Tender Love" data-albumart="img/contempo.png" src="sound/KillParis-TenderLove.mp3"></audio>
     <audio class="playsong" data-songtitle="Tantrum Desire" data-songartist="Guided Rythm" data-albumart="img/RD.png" src="sound/TantrumDesire-GuidedRhythm.mp3"></audio>
 
-    <img class="albumart" src="img/radmusicpod.png">
+    <div class="image">
+      <img class="albumart" src="img/radmusicpod.png">
+    </div>
     <div>
       <h1 class="songtitle">Song Title</h1>
     </div>
 
-    <div class="play">
-      <h2>Play</h2>
-    </div>
-    <div class="stop">
-      <h2>Pause</h2>
-    </div>
-    <div class="next">
-      <h2>Next</h2>
-    </div>
-    <div class="previous">
-      <h2>Previous</h2>
+    <div class="row">
+      <div class="col-xs-6">
+        <div class="play">
+          <br>
+          <button type="button" class="btn btn-primary btn-lg active glyphicon glyphicon-play">Play</button>
+        </div>
+        <div class="stop">
+          <br>
+          <button type="button" class="btn btn-primary btn-lg active glyphicon glyphicon-pause">Pause</button>
+        </div>
+      </div>
+
+      <div class="col-xs-6">
+        <div class="next">
+          <br>
+          <button type="button" class="btn btn-primary btn-lg active glyphicon glyphicon-step-forward">Next</button>
+        </div>
+        <div class="previous">
+          <br>
+          <button type="button" class="btn btn-primary btn-lg active glyphicon glyphicon-step-backward">Previous</button>
+        </div>
+      </div>
     </div>
   </div>
 </body>
