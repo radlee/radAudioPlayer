@@ -1,0 +1,11 @@
+.play{
+  color: green;
+}
+.stop{
+  color: red;
+}
+
+.container{
+  padding: 10px;
+  background-color: lightblue;
+}

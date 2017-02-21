@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>radMaziqPlayer</title>
+  <link href="css/main.css" rel="stylesheet">
+  <script src="js/jquery.min.js"></script>
+
+  <script type="text/javascript">
+  jQuery(document).ready(function(){
+    var audioArray = document.getElementsByClassName('playsong');
+    var nowPlaying = audioArray[i=0];
+    nowPlaying.load();
+
+    $('.play').on('click', function(){
+      nowPlaying.play();
+    });
+    $('.stop').on('click', function(){
+      nowPlaying.pause();
+    });
+    $('.next').on('click', function(){
+      $.each($('audio.playsong'), function(){
+        this.pause();
+      });
+      ++i;
+      nowPlaying.load();
+      nowPlaying.play();
+    })
+  })
+
+  </script>
+</head>
+<body>
+  <div class="container">
+    <audio class="playsong" src="sound/TantrumDesire-GuidedRhythm.mp3"></audio>
+    <audio class="playsong" src="sound/KillParis-TenderLove.mp3"></audio>
+    <div class="play">
+      <h1>Play</h1>
+    </div>
+    <div class="stop">
+      <h1>Pause</h1>
+    </div>
+    <div class="next">
+      <h1>Next</h1>
+    </div>
+  </div>
+</body>
+
+</html>
